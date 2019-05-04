@@ -9,17 +9,13 @@ App({
 
     wx.BaaS.init(clientId)
 
-    // 展示本地存储能力
-    let logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -43,8 +39,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    clientId: '020ffa0c5924ad7a915a', // 从 BaaS 后台获取 ClientID
-    tableId: '70710', // 从 https://cloud.minapp.com/dashboard/ 管理后台的数据表中获取
-    videoTableId: '70734'
+    clientId: '020ffa0c5924ad7a915a',
+    videoIdTable: '70734' //数据表videoId
   }
 })

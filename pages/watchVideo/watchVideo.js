@@ -1,12 +1,10 @@
 // pages/watchVideo/watchVideo.js
 //获取应用实例
-import utils from '../../utils/index'
+import utils from '../../utils/dbOperation'
 var app = getApp()
 
 Page({
   data: {
-    title: '我的书架',
-    tableID: app.globalData.tableId,
     bookList: [],
     creatingBookName: '', // 当前正在创建的书名
     editingBookName: '', // 当前正在编辑的书名
@@ -14,27 +12,12 @@ Page({
   },
 
   onLoad(options) {
-    wx.BaaS.login(false).then(() => {
-      this.setData({
-        profile: wx.BaaS.storage.get('userinfo')
-      })
-      //this.fetchBookList();
-      this.fetchVideoIdList();
-    })
+    this.fetchVideoIdList()
   },
 
-  // 获取 bookList 数据
-  fetchBookList() {
-    utils.getBooks(wx.BaaS.storage.get('uid'), (res) => {
-      this.setData({
-        bookList: res.data.objects // bookList array, mock data in mock/mock.js
-      })
-    })
-  },
-
-  // 获取 videoIdList 数据
+  //获取视频id列表，数据表videoId
   fetchVideoIdList() {
-    utils.getVideoIds(wx.BaaS.storage.get('uid'), (res) => {
+    utils.getDatum(app.globalData.videoIdTable, wx.BaaS.storage.get('uid'), (res) => {
       this.setData({
         videoIdList: res.data.objects
       })
@@ -45,14 +28,14 @@ Page({
   fetchVideoUrl() {
     let MyFile = new wx.BaaS.File(),
       videoUrlList = [],
-      self = this;
-    this.data.videoIdList.forEach(function (value) {
+      that = this;
+    this.data.videoIdList.forEach(function(value) {
       MyFile.get(value.videoId).then((res) => {
         // success
         videoUrlList.push({
           "url": res.data.path
         })
-        self.setData({
+        that.setData({
           videoUrlList: videoUrlList
         });
       }, err => {
