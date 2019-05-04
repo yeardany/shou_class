@@ -1,13 +1,39 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/signIn/signIn",
+    "pages/doExam/doExam",
+    "pages/homeWork/homeWork",
+    "pages/watchVideo/watchVideo"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/signIn/signIn",
+        "text": "签到"
+      },
+      {
+        "pagePath": "pages/homeWork/homeWork",
+        "text": "作业"
+      },
+      {
+        "pagePath": "pages/doExam/doExam",
+        "text": "测试"
+      },
+      {
+        "pagePath": "pages/watchVideo/watchVideo",
+        "text": "视频"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

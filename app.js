@@ -1,8 +1,16 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function() {
+    let that = this,
+      clientId = this.globalData.clientId
+
+    // 引入 BaaS SDK
+    require('./utils/sdk-v2.0.6')
+
+    wx.BaaS.init(clientId)
+
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
+    let logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
@@ -34,6 +42,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    clientId: '020ffa0c5924ad7a915a', // 从 BaaS 后台获取 ClientID
+    tableId: '70710', // 从 https://cloud.minapp.com/dashboard/ 管理后台的数据表中获取
+    videoTableId: '70734'
   }
 })
