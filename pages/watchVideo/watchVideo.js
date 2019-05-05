@@ -12,7 +12,14 @@ Page({
   },
 
   onLoad(options) {
-    this.fetchVideoIdList()
+    wx.BaaS.login(false).then(() => {
+      console.log(wx.BaaS.storage.get('uid'));
+      this.setData({
+        profile: wx.BaaS.storage.get('userinfo')
+      })
+      //this.fetchBookList(); 
+      this.fetchVideoIdList();
+    })
   },
 
   //获取视频id列表，数据表videoId
