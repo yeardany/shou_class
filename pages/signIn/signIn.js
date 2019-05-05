@@ -37,11 +37,47 @@ Page({
     }
   },
   getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+    let that = this;
+    if (e.detail.userInfo) {
+      console.log(e.detail.userInfo)
+      app.globalData.userInfo = e.detail.userInfo
+      that.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+    } else {
+      wx.showModal({
+        title: '用户未授权',
+        content: '如需正常使用小程序功能，请在弹出页面授权用户信息',
+        showCancel: false,
+        success: res => {
+          if (res.confirm) {
+            wx.openSetting({
+              success(res) {
+                wx.showToast({
+                  title: res.authSetting['scope.userInfo'] ? '已授权' : '未授权',
+                  icon: 'none'
+                });
+                if (res.authSetting['scope.userInfo']) {
+                  wx.getUserInfo({
+                    success: res => {
+                      console.log(res.userInfo)
+                      app.globalData.userInfo = res.userInfo
+                      that.setData({
+                        userInfo: res.userInfo,
+                        hasUserInfo: true
+                      })
+                    }
+                  })
+                }
+              }
+            })
+          }
+        }
+      })
+    }
+  },
+  signIn: function() {
+    console.log(app.globalData.userInfo)
   }
 })
