@@ -3,7 +3,7 @@
   <view class="UCenter-bg">
     <button class="cu-btn lg" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击登录 </button>
     <block wx:else>
-      <image class="radius margin-left" mode="widthFix" src="{{userInfo.avatarUrl}}" mode="cover">
+      <image class="round margin-left" mode="widthFix" src="{{userInfo.avatarUrl}}" mode="cover">
       </image>
       <view class="margin-top-sm">
         <view class="text-xxl text-bold">

@@ -1,2 +1,15 @@
 <!--pages/homeWork/homeWork.wxml-->
-<text>pages/homeWork/homeWork.wxml</text>
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title">
+      <text class='text-xxl'>通知：</text>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-gray"> 课程签到课程测试已移至“我的”页面课程签到课程测试已移至“我的”页面课程签到课程测试已移至“我的”页面课程签到课程测试已移至“我的”页面课程签到课程测试已移至“我的”页面课程签到课程测试已移至“我的”页面课程签到课程测试已移至“我的”页面课程签到课程测试已移至“我的”页面
+        </view>
+      </view>
+    </view>
+    <view class="cu-tag margin-left margin-top-sm round">2019.05.06</view>
+  </view>
+</view>
