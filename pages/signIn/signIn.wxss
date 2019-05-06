@@ -1,22 +1,48 @@
 /* pages/signIn/signIn.wxss */
 
-.userinfo {
+.UCenter-bg {
+  background-image: url(https://ws1.sinaimg.cn/large/006tNc79gy1g2rlpy6n6kj31bz0scgrm.jpg);
+  background-size: cover;
+  height: 550rpx;
   display: flex;
+  justify-content: center;
+  padding-top: 40rpx;
+  overflow: hidden;
+  position: relative;
   flex-direction: column;
   align-items: center;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.UCenter-bg text {
+  opacity: 0.8;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.UCenter-bg image {
+  width: 200rpx;
+  height: 200rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+.UCenter-bg .gif-wave {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  mix-blend-mode: screen;
+  height: 100rpx;
+}
+
+map, .mapBox {
+  left: 0;
+  z-index: 99;
+  mix-blend-mode: screen;
+  height: 100rpx;
+}
+
+map, .mapBox {
+  width: 750rpx;
+  height: 300rpx;
 }

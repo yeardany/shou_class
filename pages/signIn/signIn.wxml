@@ -1,11 +1,53 @@
 <!--pages/signIn/signIn.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 登录 </button>
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+    <button class="cu-btn lg" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击登录 </button>
     <block wx:else>
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      <button bindtap="signIn"> 签到 </button>
+      <image class="radius margin-left" mode="widthFix" src="{{userInfo.avatarUrl}}" mode="cover">
+      </image>
+      <view class="margin-top-sm">
+        <view class="text-xxl text-bold">
+          <text class="text-xl">Hi，</text>{{userInfo.nickName}}
+        </view>
+      </view>
     </block>
+    <image src="/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
-</view>
+  <view class="padding flex text-center text-grey bg-white shadow-warp">
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-orange"> SHOU</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-selectionfill"></text> 学校</view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-blue"> 1351120</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-tagfill"></text> 学号</view>
+    </view>
+    <view class="flex flex-sub flex-direction">
+      <view class="text-xxl text-green">6666</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-moneybagfill"></text> 积分</view>
+    </view>
+  </view>
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow" wx:if="{{hasUserInfo}}">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">课程签到</text>
+      </button>
+    </view>
+    <view class="cu-item arrow" wx:if="{{hasUserInfo}}">
+      <navigator class="content" url="/pages/about/log/log" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">课程测验</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/about/about" hover-class="none">
+        <text class="cuIcon-circlefill text-red"></text>
+        <text class="text-grey">关于</text>
+      </navigator>
+    </view>
+  </view>
+</scroll-view>

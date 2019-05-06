@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/homeWork/homeWork",
     "pages/signIn/signIn",
     "pages/doExam/doExam",
-    "pages/homeWork/homeWork",
     "pages/watchVideo/watchVideo"
   ],
   "window": {
@@ -18,20 +18,16 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/signIn/signIn",
-        "text": "签到"
-      },
-      {
         "pagePath": "pages/homeWork/homeWork",
-        "text": "作业"
-      },
-      {
-        "pagePath": "pages/doExam/doExam",
-        "text": "测试"
+        "text": "公告"
       },
       {
         "pagePath": "pages/watchVideo/watchVideo",
         "text": "视频"
+      },
+      {
+        "pagePath": "pages/signIn/signIn",
+        "text": "我的"
       }
     ]
   },
