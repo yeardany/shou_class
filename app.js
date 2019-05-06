@@ -32,6 +32,7 @@ App({
   globalData: {
     userInfo: null,
     clientId: '020ffa0c5924ad7a915a',
-    videoIdTable: '70734' //数据表videoId
+    videoIdTable: '70734', //数据表videoId
+    notificationTable: '73021' //数据表notificationTable
   }
 })

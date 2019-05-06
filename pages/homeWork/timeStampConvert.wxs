@@ -1,0 +1,8 @@
+var convert = function(e) {
+  var time = getDate((parseInt(e) * 1000)),
+    month = time.getMonth() + 1
+  return time.getFullYear() + "年" + month + "月" + time.getDate() + "日"
+}
+module.exports = {
+  convert: convert
+}

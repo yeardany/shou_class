@@ -1,15 +1,18 @@
 <!--pages/homeWork/homeWork.wxml-->
-<view class="cu-card article {{isCard?'no-card':''}}">
-  <view class="cu-item shadow">
+<view class="cu-card article">
+  <view class="cu-item shadow" wx:for="{{notificationList}}">
     <view class="title">
-      <text class='text-xxl'>通知：</text>
+      <text class='text-xxl'>{{item.type}}：</text>
     </view>
     <view class="content">
       <view class="desc">
-        <view class="text-gray"> 课程签到课程测试已移至“我的”页面课程签到课程测试已移至“我的”页面课程签到课程测试已移至“我的”页面课程签到课程测试已移至“我的”页面课程签到课程测试已移至“我的”页面课程签到课程测试已移至“我的”页面课程签到课程测试已移至“我的”页面课程签到课程测试已移至“我的”页面
+        <view class="text-gray"> {{item.content}}
         </view>
       </view>
     </view>
-    <view class="cu-tag margin-left margin-top-sm round">2019.05.06</view>
+    <view class="cu-tag margin-left margin-top-sm round">
+      {{timeStampConvert.convert(item.created_at)}}
+    </view>
   </view>
 </view>
+<wxs src="./timeStampConvert.wxs" module="timeStampConvert" />
