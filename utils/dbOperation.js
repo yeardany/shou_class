@@ -1,5 +1,5 @@
 //查询
-let getDatum = (tableId, uid, cb) => {
+let getDatum = (tableId, cb) => {
   let Datum = new wx.BaaS.TableObject(tableId),
     query = new wx.BaaS.Query()
 

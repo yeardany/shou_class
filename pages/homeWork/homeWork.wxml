@@ -1,6 +1,6 @@
 <!--pages/homeWork/homeWork.wxml-->
 <view class="cu-card article">
-  <view class="cu-item shadow" wx:for="{{notificationList}}">
+  <view class="cu-item shadow" wx:key="{{item.id}}" wx:for="{{notificationList}}">
     <view class="title">
       <text class='text-xxl'>{{item.type}}：</text>
     </view>

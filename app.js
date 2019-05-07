@@ -7,7 +7,9 @@ App({
     // 引入 BaaS SDK
     require('./utils/sdk-v2.0.6')
 
-    wx.BaaS.init(clientId)
+    wx.BaaS.init(clientId, {
+      autoLogin: false
+    })
 
     // 获取用户信息
     wx.getSetting({
