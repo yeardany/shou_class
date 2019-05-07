@@ -6,7 +6,9 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    stuNumber: '--',
+    show: false //学号输入模态框显示/隐藏
   },
   onLoad: function() {
     if (app.globalData.userInfo) {
@@ -44,6 +46,13 @@ Page({
       that.setData({
         userInfo: e.detail.userInfo,
         hasUserInfo: true
+      });
+      //使用微信登录知晓云，并返回用户信息
+      wx.BaaS.auth.loginWithWechat(e, {
+        createUser: true,
+        syncUserProfile: 'overwrite'
+      }).then(user => {
+        that.showModal();
       })
     } else {
       wx.showModal({
@@ -66,6 +75,16 @@ Page({
                       that.setData({
                         userInfo: res.userInfo,
                         hasUserInfo: true
+                      });
+                      //使用微信登录知晓云，并返回用户信息
+                      wx.BaaS.auth.loginWithWechat({
+                        "type": "getuserinfo",
+                        "detail": res
+                      }, {
+                        createUser: true,
+                        syncUserProfile: 'overwrite'
+                      }).then(user => {
+                        that.showModal();
                       })
                     }
                   })
@@ -76,6 +95,28 @@ Page({
         }
       })
     }
+  },
+  getStuNumber(e) {
+    this.setData({
+      stuNumber: e.detail.value
+    })
+  },
+  showModal() {
+    this.setData({
+      show: true
+    })
+  },
+  confirmStuNumber() {
+    this.setData({
+      show: false
+    })
+    wx.showModal({
+      title: '学号确认',
+      content: '学号：' + this.data.stuNumber + ' 确认后将不能更改！',
+      success(res) {
+
+      }
+    })
   },
   signIn: function() {
     console.log(app.globalData.userInfo)
