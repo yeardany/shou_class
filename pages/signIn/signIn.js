@@ -51,7 +51,6 @@ Page({
   getUserInfo: function(e) {
     let that = this;
     if (e.detail.userInfo) {
-      console.log(e.detail.userInfo)
       app.globalData.userInfo = e.detail.userInfo
       that.setData({
         userInfo: e.detail.userInfo,
@@ -62,7 +61,20 @@ Page({
         createUser: true,
         syncUserProfile: 'overwrite'
       }).then(user => {
-        that.showModal();
+        console.log('--->', user.get('stuNumber'));
+        //如已存有学号字段，将不弹框输入学号，仅做登录，并把学号存到本地
+        if (!user.get('stuNumber'))
+          that.showModal();
+        else if (user.get('stuNumber')) {
+          that.setData({
+            stuNumber: user.get('stuNumber')
+          });
+          wx.setStorage({
+            key: 'stuNumber',
+            data: user.get('stuNumber')
+          });
+          app.globalData.stuNumber = user.get('stuNumber')
+        }
       })
     } else {
       wx.showModal({
@@ -80,7 +92,6 @@ Page({
                 if (res.authSetting['scope.userInfo']) {
                   wx.getUserInfo({
                     success: res => {
-                      console.log(res.userInfo)
                       app.globalData.userInfo = res.userInfo
                       that.setData({
                         userInfo: res.userInfo,
@@ -94,7 +105,19 @@ Page({
                         createUser: true,
                         syncUserProfile: 'overwrite'
                       }).then(user => {
-                        that.showModal();
+                        //如已存有学号字段，将不弹框输入学号，仅做登录，并把学号存到本地
+                        if (!user.get('stuNumber'))
+                          that.showModal();
+                        else if (user.get('stuNumber')) {
+                          that.setData({
+                            stuNumber: user.get('stuNumber')
+                          });
+                          wx.setStorage({
+                            key: 'stuNumber',
+                            data: user.get('stuNumber')
+                          });
+                          app.globalData.stuNumber = user.get('stuNumber')
+                        }
                       })
                     }
                   })
