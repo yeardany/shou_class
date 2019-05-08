@@ -7,10 +7,11 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    stuNumber: '--',
+    stuNumber: app.globalData.stuNumber,
     show: false //学号输入模态框显示/隐藏
   },
   onLoad: function() {
+    //获取个人信息
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -37,6 +38,15 @@ Page({
         }
       })
     }
+    //更新学号
+    if (!app.globalData.stuNumber)
+      this.setData({
+        stuNumber: '--'
+      })
+    else
+      this.setData({
+        stuNumber: app.globalData.stuNumber
+      })
   },
   getUserInfo: function(e) {
     let that = this;
@@ -107,15 +117,22 @@ Page({
     })
   },
   confirmStuNumber() {
-    this.setData({
+    let that = this;
+    that.setData({
       show: false
-    })
-    wx.showModal({
-      title: '学号确认',
-      content: '学号：' + this.data.stuNumber + ' 确认后将不能更改！',
-      success(res) {
-
-      }
+    });
+    //数据库更新学生学号
+    wx.BaaS.auth.getCurrentUser().then(user => {
+      user.set('stuNumber', that.data.stuNumber).update().then(res => {
+        //学号存到本地
+        wx.setStorage({
+          key: 'stuNumber',
+          data: that.data.stuNumber
+        });
+        app.globalData.stuNumber = that.data.stuNumber
+      }, err => {
+        // err 为 HError 对象
+      })
     })
   },
   signIn: function() {

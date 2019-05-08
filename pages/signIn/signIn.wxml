@@ -19,7 +19,7 @@
       <view class="margin-top-sm">
         <text class="cuIcon-selectionfill"></text> 学校</view>
     </view>
-    <view class="flex flex-sub flex-direction solid-right" bindtap="showModal">
+    <view class="flex flex-sub flex-direction solid-right">
       <view class="text-xxl text-blue"> {{stuNumber}}</view>
       <view class="margin-top-sm">
         <text class="cuIcon-tagfill"></text> 学号</view>
@@ -57,11 +57,11 @@
       <view class="content text-bold"> 学号（本科7位）</view>
     </view>
     <view class="padding-xl">
-      <input placeholder="点此输入学号，务必正确输入，后续不能修改" type='number' maxlength='7' bindinput='getStuNumber' />
+      <input placeholder="点此输入学号，务必正确输入，确认后将不能修改！" type='number' maxlength='7' bindinput='getStuNumber' />
     </view>
     <view class="cu-bar bg-white justify-end">
       <view class="action">
-        <button class="cu-btn bg-green margin-left" bindtap="confirmStuNumber">确定</button>
+        <button class="cu-btn bg-green margin-left" bindtap="confirmStuNumber">确认</button>
       </view>
     </view>
   </view>
