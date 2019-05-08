@@ -1,5 +1,4 @@
 <!--pages/watchVideo/watchVideo.wxml-->
 <view>
-  <video wx:for="{{videoUrlList}}" wx:for-index="index" wx:for-item="item" src='{{item.url}}'>
-  </video>
+  <txv-video wx:for="{{videoIdList}}" wx:key="{{item.id}}" vid="{{item.videoId}}" playerid="{{item.videoId}}"></txv-video>
 </view>

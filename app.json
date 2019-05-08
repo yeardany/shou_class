@@ -8,7 +8,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "SHOU课堂小助手",
+    "navigationBarTitleText": "iSHOU课堂",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -31,5 +31,11 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "tencentvideo": {
+      "version": "1.3.0",
+      "provider": "wxa75efa648b60994b"
+    }
+  }
 }

@@ -8,45 +8,19 @@ Page({
     bookList: [],
     creatingBookName: '', // 当前正在创建的书名
     editingBookName: '', // 当前正在编辑的书名
-    videoUrlList: []
+    videoIdList: []
   },
 
   onLoad(options) {
-    wx.BaaS.login(false).then(() => {
-      console.log(wx.BaaS.storage.get('uid'));
-      this.setData({
-        profile: wx.BaaS.storage.get('userinfo')
-      })
-      //this.fetchBookList(); 
-      this.fetchVideoIdList();
-    })
+    this.fetchVideoIdList();
   },
 
-  //获取视频id列表，数据表videoId
+  //获取腾讯视频vid列表，数据表videoId
   fetchVideoIdList() {
-    utils.getDatum(app.globalData.videoIdTable, wx.BaaS.storage.get('uid'), (res) => {
+    utils.getDatum(app.globalData.videoIdTable, (res) => {
+      console.log(res.data.objects);
       this.setData({
         videoIdList: res.data.objects
-      })
-      this.fetchVideoUrl()
-    })
-  },
-
-  fetchVideoUrl() {
-    let MyFile = new wx.BaaS.File(),
-      videoUrlList = [],
-      that = this;
-    this.data.videoIdList.forEach(function(value) {
-      MyFile.get(value.videoId).then((res) => {
-        // success
-        videoUrlList.push({
-          "url": res.data.path
-        })
-        that.setData({
-          videoUrlList: videoUrlList
-        });
-      }, err => {
-        // HError 对象
       })
     })
   },
@@ -123,6 +97,6 @@ Page({
         curRecordId: ''
       })
     })
-  },
+  }
 
 })
