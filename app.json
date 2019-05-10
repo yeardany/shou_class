@@ -3,7 +3,8 @@
     "pages/notification/notification",
     "pages/video/video",
     "pages/mine/mine",
-    "pages/doExam/doExam"
+    "pages/doExam/doExam",
+    "pages/signIn/signIn"
   ],
   "window": {
     "backgroundTextStyle": "light",
