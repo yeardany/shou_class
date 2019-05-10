@@ -1,4 +1,4 @@
-<!--pages/homeWork/homeWork.wxml-->
+<!--pages/notification/notification.wxml-->
 <view class="cu-card article">
   <view class="cu-item shadow" wx:key="{{item.id}}" wx:for="{{notificationList}}">
     <view class="title">

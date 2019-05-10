@@ -1,4 +1,4 @@
-// pages/signIn/signIn.js
+// pages/mine/mine.js
 //获取应用实例
 const app = getApp()
 

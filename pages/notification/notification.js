@@ -1,4 +1,4 @@
-// pages/homeWork/homeWork.js
+// pages/notification/notification.js
 import utils from '../../utils/dbOperation'
 var app = getApp()
 

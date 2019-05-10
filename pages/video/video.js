@@ -1,4 +1,4 @@
-// pages/watchVideo/watchVideo.js
+// pages/video/video.js
 //获取应用实例
 import utils from '../../utils/dbOperation'
 var app = getApp()

@@ -1,4 +1,4 @@
-/* pages/signIn/signIn.wxss */
+/* pages/mine/mine.wxss */
 
 .UCenter-bg {
   background-image: url(https://ws1.sinaimg.cn/large/006tNc79gy1g2rlpy6n6kj31bz0scgrm.jpg);
