@@ -32,22 +32,28 @@
   </view>
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow" wx:if="{{hasUserInfo}}">
-      <button class="cu-btn content" open-type="feedback">
+      <navigator class="content" url="/pages/doExam/doExam" hover-class="none">
         <text class="cuIcon-writefill text-cyan"></text>
         <text class="text-grey">课程签到</text>
-      </button>
+      </navigator>
     </view>
     <view class="cu-item arrow" wx:if="{{hasUserInfo}}">
-      <navigator class="content" url="/pages/about/log/log" hover-class="none">
+      <navigator class="content" url="/pages/doExam/doExam" hover-class="none">
         <text class="cuIcon-formfill text-green"></text>
         <text class="text-grey">课程测验</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/about/about" hover-class="none">
+      <navigator class="content" url="/pages/about/about" hover-class="none">
         <text class="cuIcon-circlefill text-red"></text>
-        <text class="text-grey">关于</text>
+        <text class="text-grey" decode="{{true}}">关&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;于</text>
       </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback" hover-class="none">
+        <text class="cuIcon-servicefill text-red"></text>
+        <text class="text-grey">意见反馈</text>
+      </button>
     </view>
   </view>
 </scroll-view>
