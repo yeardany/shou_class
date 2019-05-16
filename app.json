@@ -7,7 +7,6 @@
     "pages/signIn/signIn"
   ],
   "window": {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "iSHOU课堂",
     "navigationBarTextStyle": "black"
