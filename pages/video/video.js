@@ -12,16 +12,21 @@ Page({
   },
 
   onLoad(options) {
-    this.fetchVideoIdList();
+    this.fetchVideoIdList(false);
+  },
+
+  onPullDownRefresh: function() {
+    this.fetchVideoIdList(true)
   },
 
   //获取腾讯视频vid列表，数据表videoId
-  fetchVideoIdList() {
+  fetchVideoIdList(isPullDownRefresh) {
     utils.getDatum(app.globalData.videoIdTable, (res) => {
-      console.log(res.data.objects);
       this.setData({
         videoIdList: res.data.objects
       })
+      if (isPullDownRefresh)
+        wx.stopPullDownRefresh()
     })
   },
 
