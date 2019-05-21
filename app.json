@@ -4,7 +4,8 @@
     "pages/video/video",
     "pages/mine/mine",
     "pages/doExam/doExam",
-    "pages/signIn/signIn"
+    "pages/signIn/signIn",
+    "pages/study/study"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
@@ -20,6 +21,10 @@
       {
         "pagePath": "pages/notification/notification",
         "text": "公告"
+      },
+      {
+        "pagePath": "pages/study/study",
+        "text": "学习"
       },
       {
         "pagePath": "pages/video/video",

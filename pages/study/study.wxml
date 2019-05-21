@@ -1,0 +1,24 @@
+<!--pages/study/study.wxml-->
+<view class="bg-white nav text-center">
+  <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{['文件/资料']}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+    {{item}}
+  </view>
+</view>
+
+<view class="cu-list menu sm-border" wx:if="{{TabCur==0}}">
+  <view class="cu-item" wx:for="{{fileList}}" wx:key="{{index}}">
+    <view class="content padding-tb-sm">
+      <view class="text-lg">{{item.category.name}}</view>
+      <view class="text-gray text-df">
+        <text class="cuIcon-infofill margin-right-xs"></text>
+        <text>{{item.name}}</text>
+        <view class="cu-tag bg-{{tag.tagColor(item.mime_type)}} sm radius" style='height:32rpx'>{{tag.tagContent(item.mime_type)}}</view>
+      </view>
+    </view>
+    <view class="action">
+      <view class="cu-btn round bg-gray">下载</view>
+    </view>
+  </view>
+</view>
+
+<wxs src="./tag.wxs" module="tag" />
