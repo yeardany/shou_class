@@ -6,7 +6,9 @@ Page({
    */
   data: {
     TabCur: 0,
-    fileList: []
+    fileList: [],
+    loadModal: 'none',
+    percent: ''
   },
 
   /**
@@ -25,9 +27,33 @@ Page({
       // err
     })
   },
-  tabSelect(e) {
+  tabSelect: function(e) {
     this.setData({
       TabCur: e.currentTarget.dataset.id
+    })
+  },
+  download: function(e) {
+    const downloadTask = wx.downloadFile({
+      url: e.currentTarget.dataset.link,
+      success(res) {
+
+      },
+      fail() {
+
+      }
+    })
+
+    downloadTask.onProgressUpdate((res) => {
+      if (res.progress === 0 || res.progress === 100)
+        this.setData({
+          loadModal: 'none',
+          percent: ''
+        })
+      else
+        this.setData({
+          loadModal: '',
+          percent: res.progress
+        })
     })
   }
 })

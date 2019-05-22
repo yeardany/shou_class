@@ -40,7 +40,6 @@ var color = function(e) {
 }
 
 var detail = function(e) {
-  console.log(e.lastIndexOf('.') + 1)
   return e.substring(0, e.lastIndexOf('.'))
 }
 
