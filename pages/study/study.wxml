@@ -11,7 +11,7 @@
       <view class="text-lg">{{item.category.name}}</view>
       <view class="text-gray text-df">
         <text class="cuIcon-infofill margin-right-xs"></text>
-        <text>{{item.name}}</text>
+        <text>{{tag.detail(item.name)}}</text>
         <view class="cu-tag bg-{{tag.tagColor(item.mime_type)}} sm radius" style='height:32rpx'>{{tag.tagContent(item.mime_type)}}</view>
       </view>
     </view>

@@ -39,7 +39,13 @@ var color = function(e) {
     return tagColor['5']
 }
 
+var detail = function(e) {
+  console.log(e.lastIndexOf('.') + 1)
+  return e.substring(0, e.lastIndexOf('.'))
+}
+
 module.exports = {
   tagContent: content,
-  tagColor: color
+  tagColor: color,
+  detail: detail
 }
