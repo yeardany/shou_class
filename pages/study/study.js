@@ -8,7 +8,7 @@ Page({
     TabCur: 0,
     fileList: [],
     isDisable: false,
-    percent: ''
+    percent: 0
   },
 
   /**
@@ -47,7 +47,7 @@ Page({
       if (res.progress === 0 || res.progress === 100)
         this.setData({
           isDisable: false,
-          percent: ''
+          percent: 0
         })
       else
         this.setData({
