@@ -15,7 +15,7 @@
       </view>
     </view>
     <view class="action margin-left-xs">
-      <button class="cu-btn round" bindtap="download" data-link="{{item.path}}" disabled="{{isDisable}}">下载</button>
+      <button class="cu-btn round" bindtap="download" data-link="{{item.path}}" disabled="{{isDisable}}">浏览</button>
     </view>
   </view>
 </view>

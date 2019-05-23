@@ -1,6 +1,6 @@
 var tagContent = {
     "1": "Word",
-    "2": "PownPoint",
+    "2": "PowerPoint",
     "3": "Excel",
     "4": "Pdf",
     "5": "Other"
