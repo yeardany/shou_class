@@ -10,19 +10,18 @@
     <view class="content padding-tb-sm">
       <view class="text-lg">{{item.category.name}}</view>
       <view class="text-gray text-df">
-        <text class="cuIcon-infofill margin-right-xs"></text>
         <text>{{tag.detail(item.name)}}</text>
         <view class="cu-tag bg-{{tag.tagColor(item.mime_type)}} sm radius" style='height:32rpx'>{{tag.tagContent(item.mime_type)}}</view>
       </view>
     </view>
-    <view class="action">
-      <button class="cu-btn round bg-gray" bindtap="download" data-link="{{item.path}}" disabled="{{isDisable}}">下载</button>
+    <view class="action margin-left-xs">
+      <button class="cu-btn round" bindtap="download" data-link="{{item.path}}" disabled="{{isDisable}}">下载</button>
     </view>
   </view>
 </view>
 
 <view class='load-progress {{percent!=0?"show":"hide"}}'>
-  <view class='load-progress-bar bg-gray' style="transform: translate3d(-{{100-percent}}%, 0px, 0px)"></view>
+  <view class='load-progress-bar bg-green' style="transform: translate3d(-{{100-percent}}%, 0px, 0px)"></view>
 </view>
 
 <wxs src="./tag.wxs" module="tag" />
