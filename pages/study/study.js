@@ -15,6 +15,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.getData(false)
+  },
+  onPullDownRefresh: function() {
+    this.getData(true)
+  },
+  tabSelect: function(e) {
+    this.setData({
+      TabCur: e.currentTarget.dataset.id
+    })
+  },
+  getData: function(isPullDownRefresh) {
     let MyFile = new wx.BaaS.File()
 
     // 查找所有文件
@@ -23,13 +34,10 @@ Page({
       this.setData({
         fileList: res.data.objects
       })
+      if (isPullDownRefresh)
+        wx.stopPullDownRefresh()
     }, err => {
       // err
-    })
-  },
-  tabSelect: function(e) {
-    this.setData({
-      TabCur: e.currentTarget.dataset.id
     })
   },
   download: function(e) {
