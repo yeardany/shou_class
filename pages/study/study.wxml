@@ -16,19 +16,14 @@
       </view>
     </view>
     <view class="action">
-      <view class="cu-btn round bg-gray" bindtap="download" data-link="{{item.path}}">下载</view>
+      <button class="cu-btn round bg-gray" bindtap="download" data-link="{{item.path}}" disabled="{{isDisable}}">下载</button>
     </view>
   </view>
 </view>
 
-<view class='cu-load load-modal' style="display:{{loadModal}}">
-  <view class='cuIcon-emojifill text-orange'></view>
-  <view class='gray-text'>下载中...{{percent}}%</view>
-</view>
-
 <view class='load-progress flex {{percent!=0?"show":"hide"}}'>
-  <view class='load-progress-bar bg-green' style="transform: translate3d(-{{100-percent}}%, 0px, 0px);width:90%"></view>
-  <text class="margin-left">{{percent}}%</text>
+  <view class='load-progress-bar bg-green' style="transform: translate3d(-{{100-percent}}%, 0px, 0px)"></view>
+  <text class="margin-right">{{percent}}%</text>
 </view>
 
 <wxs src="./tag.wxs" module="tag" />

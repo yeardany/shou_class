@@ -7,7 +7,7 @@ Page({
   data: {
     TabCur: 0,
     fileList: [],
-    loadModal: 'none',
+    isDisable: false,
     percent: ''
   },
 
@@ -46,12 +46,12 @@ Page({
     downloadTask.onProgressUpdate((res) => {
       if (res.progress === 0 || res.progress === 100)
         this.setData({
-          loadModal: 'none',
+          isDisable: false,
           percent: ''
         })
       else
         this.setData({
-          loadModal: '',
+          isDisable: true,
           percent: res.progress
         })
     })
