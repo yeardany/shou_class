@@ -33,25 +33,31 @@ Page({
     })
   },
   download: function(e) {
+    let that = this
+    that.setData({
+      isDisable: true
+    })
     const downloadTask = wx.downloadFile({
       url: e.currentTarget.dataset.link,
       success(res) {
-
+        wx.openDocument({
+          filePath: res.tempFilePath
+        })
       },
-      fail() {
-
+      complete() {
+        that.setData({
+          isDisable: false
+        })
       }
     })
 
     downloadTask.onProgressUpdate((res) => {
       if (res.progress === 0 || res.progress === 100)
         this.setData({
-          isDisable: false,
           percent: 0
         })
       else
         this.setData({
-          isDisable: true,
           percent: res.progress
         })
     })
