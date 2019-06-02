@@ -40,6 +40,7 @@ App({
     wx.getSystemInfo({
       success(res) {
         that.globalData.brand = res.brand
+        console.log(res.brand)
         console.log(res.model)
         console.log(res.platform)
       }
