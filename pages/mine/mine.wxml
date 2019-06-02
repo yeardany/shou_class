@@ -44,6 +44,12 @@
       </navigator>
     </view>
     <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/about" hover-class="none">
+        <text class="cuIcon-circlefill text-orange"></text>
+        <text class="text-grey">关于</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
       <button class="cu-btn content" open-type="feedback" hover-class="none">
         <text class="cuIcon-servicefill text-red"></text>
         <text class="text-grey">意见反馈</text>

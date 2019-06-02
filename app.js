@@ -35,11 +35,20 @@ App({
       success(res) {
         that.globalData.stuNumber = res.data
       }
-    })
+    });
+    //获取设备信息
+    wx.getSystemInfo({
+      success(res) {
+        that.globalData.brand = res.brand
+        console.log(res.model)
+        console.log(res.platform)
+      }
+    });
   },
   globalData: {
     userInfo: null,
     stuNumber: null,
+    brand: 'other',
     clientId: '020ffa0c5924ad7a915a',
     videoIdTable: '70734', //数据表videoId
     notificationTable: '73021' //数据表notificationTable

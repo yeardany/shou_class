@@ -5,7 +5,8 @@
     "pages/mine/mine",
     "pages/doExam/doExam",
     "pages/signIn/signIn",
-    "pages/study/study"
+    "pages/study/study",
+    "pages/about/about"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
@@ -39,7 +40,7 @@
   "sitemapLocation": "sitemap.json",
   "plugins": {
     "tencentvideo": {
-      "version": "1.3.0",
+      "version": "1.3.2",
       "provider": "wxa75efa648b60994b"
     }
   }
