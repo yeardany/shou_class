@@ -46,7 +46,7 @@
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/about" hover-class="none">
         <text class="cuIcon-circlefill text-orange"></text>
-        <text class="text-grey">关于</text>
+        <text class="text-grey">使用说明</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
