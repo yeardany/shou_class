@@ -39,10 +39,8 @@ App({
     //获取设备信息
     wx.getSystemInfo({
       success(res) {
-        that.globalData.brand = res.brand
-        console.log(res.brand)
-        console.log(res.model)
-        console.log(res.platform)
+        const brand = res.brand;
+        that.globalData.brand = brand.toLowerCase()
       }
     });
   },
