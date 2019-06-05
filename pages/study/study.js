@@ -26,9 +26,12 @@ Page({
     }
   },
   onPullDownRefresh: function() {
-    if (app.globalData.userInfo)
+    if (app.globalData.userInfo) {
+      this.setData({
+        isLogin: true
+      })
       this.getData(true)
-    else
+    } else
       wx.showModal({
         title: '',
         content: '请先登录',
