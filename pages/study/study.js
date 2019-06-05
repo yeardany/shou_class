@@ -1,4 +1,7 @@
 // pages/study/study.js
+import errCode from '../../utils/errorCode'
+var app = getApp()
+
 Page({
 
   /**
@@ -7,7 +10,7 @@ Page({
   data: {
     TabCur: 0,
     fileList: [],
-    isDisable: false,
+    isLogin: false,
     percent: 0
   },
 
@@ -15,10 +18,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getData(false)
+    if (app.globalData.userInfo) {
+      this.setData({
+        isLogin: true
+      })
+      this.getData(false)
+    }
   },
   onPullDownRefresh: function() {
-    this.getData(true)
+    if (app.globalData.userInfo)
+      this.getData(true)
+    else
+      wx.showModal({
+        title: '',
+        content: '请先登录',
+        showCancel: false,
+        success(res) {
+          if (res.confirm)
+            wx.switchTab({
+              url: '../mine/mine'
+            })
+        }
+      })
+
   },
   tabSelect: function(e) {
     this.setData({
@@ -26,18 +48,18 @@ Page({
     })
   },
   getData: function(isPullDownRefresh) {
+
     let MyFile = new wx.BaaS.File()
 
     // 查找所有文件
     MyFile.find().then(res => {
-      // success
       this.setData({
         fileList: res.data.objects
       })
       if (isPullDownRefresh)
         wx.stopPullDownRefresh()
     }, err => {
-      // err
+      console.log(errCode[err.code])
     })
   },
   download: function(e) {

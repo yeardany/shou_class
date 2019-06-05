@@ -5,6 +5,7 @@
     <text>{{bonusGreet.bonus(bonus)}}</text>
     <view class='margin-top-sm'>1. 遇到任何问题请点击“意见反馈”留言</view>
     <view class='margin-top-sm'>2. 由于微信限制，“学习-资料”内下载的文件不能以绝对路径保存，且会随机命名。Android用户可以前往“文件管理”APP，按路径“tencent-MicroMsg-wxafiles-wx4fafe***”找到已下载文件。iOS用户可选择使用其他APP打开（如WPS）并保存。</view>
+    <view class='margin-top-sm'>🥞🧀🍖🍗🥩🥓🍔🍟🍕🌭🥪🌮🌯🥙🥗🥘🍲🍳🍿🥫🍱🍣🍤🍛🍜🍘🍦🍧🎂🍰</view>
   </view>
 </view>
 

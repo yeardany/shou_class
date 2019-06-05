@@ -20,7 +20,10 @@
   </view>
 </view>
 
-<navigator class='text-gray margin text-right' url='/pages/about/about' hover-class='none'>查看说明</navigator>
+<block>
+  <navigator wx:if="{{!isLogin}}" class='text-gray margin text-center' open-type='switchTab' url='/pages/mine/mine' hover-class='none'>点击此处跳转登录，并返回下拉刷新以浏览</navigator>
+  <navigator wx:elif="{{isLogin}}" class='text-gray margin text-center' url='/pages/about/about' hover-class='none'>点击查看说明</navigator>
+</block>
 
 <view class='load-progress {{percent!=0?"show":"hide"}}'>
   <view class='load-progress-bar bg-green' style="transform: translate3d(-{{100-percent}}%, 0px, 0px)"></view>
