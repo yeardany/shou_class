@@ -31,7 +31,8 @@ Page({
         isLogin: true
       })
       this.getData(true)
-    } else
+    } else {
+      wx.stopPullDownRefresh()
       wx.showModal({
         title: '',
         content: '请先登录',
@@ -43,7 +44,7 @@ Page({
             })
         }
       })
-
+    }
   },
   tabSelect: function(e) {
     this.setData({
