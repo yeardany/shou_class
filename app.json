@@ -5,6 +5,7 @@
     "pages/mine/mine",
     "pages/doExam/doExam",
     "pages/signIn/signIn",
+    "pages/signIn/signInManage",
     "pages/study/study",
     "pages/about/about"
   ],
