@@ -9,22 +9,13 @@ let getDatum = (tableId, cb) => {
 }
 
 //增加
-let addDatum = (ctx, cb) => {
+let addDatum = (tableId, data, cb) => {
+  let Datum = new wx.BaaS.TableObject(tableId)
 
-  let tableId = getApp().globalData.tableId,
-    Datum = new wx.BaaS.TableObject(tableId),
-    Data = Datum.create(),
-    bookName = ctx.data.creatingBookName
-
-  let data = {
-    bookName,
-  }
-
-  Data.set(data)
+  Datum.create().set(data)
     .save()
     .then(res => cb(res))
     .catch(err => console.dir(err))
-
 }
 
 //修改
