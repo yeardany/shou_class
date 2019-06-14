@@ -1,16 +1,17 @@
 // pages/signIn.js
 import utils from '../../utils/dbOperation'
-var app = getApp()
+import {
+  Base64
+} from '../../utils/base64.min'
+
+let app = getApp()
 
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: {
-    signInIdList: [],
-    code: ''
-  },
+  data: {},
 
   /**
    * 生命周期函数--监听页面加载
@@ -18,37 +19,49 @@ Page({
   onLoad: function(options) {
     let that = this;
 
-    // wx.getLocation({
-    //   type: 'wgs84',
-    //   success(res) {
-    //     const latitude = res.latitude
-    //     const longitude = res.longitude
-    //     const speed = res.speed
-    //     const accuracy = res.accuracy
-    //   }
-    // })
-
-
     wx.scanCode({
       onlyFromCamera: true,
       scanType: ['qrCode'],
       success(res) {
-        that.setData({
-          code: res.result
-        })
+        that.signIn(res.result)
       }
     })
-    // utils.getDatum(app.globalData.signInIdTable, (res) => {
-    //   this.setData({
-    //     signInIdList: res.data.objects
-    //   })
-    // })
   },
 
-  signIn: function(e) { 
-    console.log(e.currentTarget.dataset.si)
-    console.log(e.currentTarget.dataset.cn)
-    console.log(e.currentTarget.dataset.ci)
-    console.log(e.currentTarget.dataset.tn)
+  signIn: function(d) {
+    if (d) {
+      let str = d.substr(d.indexOf("?") + 1),
+        arr = str.split("&"),
+        code = arr[0].substr(4);
+      console.log('当前时间戳--->', parseInt(new Date().getTime()))
+      console.log('二维码时间戳--->', parseInt((Base64.decode(code)).substr(0, 13)))
+      console.log('差值,--->', parseInt(new Date().getTime()) - parseInt((Base64.decode(code)).substr(0, 13)))
+      if (parseInt(new Date().getTime()) - parseInt((Base64.decode(code)).substr(0, 13)) <= 6000)
+        wx.showModal({
+          title: '',
+          content: '签到成功',
+          showCancel: false,
+          success(res) {
+            if (res.confirm) {
+              wx.navigateBack({
+                delta: 1
+              })
+            }
+          }
+        })
+      else
+        wx.showModal({
+          title: '',
+          content: '签到失败',
+          showCancel: false,
+          success(res) {
+            if (res.confirm) {
+              wx.navigateBack({
+                delta: 1
+              })
+            }
+          }
+        })
+    }
   }
 })

@@ -88,10 +88,10 @@ Page({
 
     i = setInterval(function() {
       console.log('timer going...')
-      qrcode.makeCode('https://www.jd.com/?spm=' + Base64.encode(new Date().getTime() + id) + '&tn=84053098_3_dg&ie=utf-8')
+      qrcode.makeCode('https://www.jd.com?spm=' + Base64.encode(new Date().getTime() + id) + '&tn=84053098_3_dg&ie=utf-8')
       //qrcode.exportImage(function(path) {})
     }, 3000, id)
-  },
+  }
 
   // preview: function() {
   //   wx.previewImage({

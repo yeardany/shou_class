@@ -1,13 +1,1 @@
 <!--pages/signIn.wxml-->
-
-<text>{{code}}</text>
-
-<view class="cu-form-group" wx:for="{{signInIdList}}" wx:key="{{item.id}}">
-  <view class="title">{{timeStampConvert.convert(item.created_at)}} {{item.teacherName}} {{item.courseName}}</view>
-  <button class="cu-btn sm bg-green" data-si="{{item.id}}" data-tn="{{item.teacherName}}" data-cn="{{item.courseName}}" data-ci="{{item.courseId}}" bind:tap="signIn">签到</button>
-
-</view>
-
-
-
-<wxs src="../notification/timeStampConvert.wxs" module="timeStampConvert" />
