@@ -20,14 +20,13 @@
       <input placeholder="没有固定格式，例：信计1" bindinput='classNameInput' />
     </view>
     <view class="padding flex flex-direction">
-      <button class="cu-btn bg-green margin-tb-sm lg" bindtap='ok'>点击生成签到码</button>
+      <button class="cu-btn bg-green margin-tb-sm lg" bindtap='ok'>点击生成签到码，使用本小程序扫码签到</button>
     </view>
   </form>
   <view class="flex justify-center margin padding">
     <canvas style="width:{{qrcodeWidth}}px; height:{{qrcodeWidth}}px;" canvas-id='canvas' bindtap='preview'>
     </canvas>
   </view>
-  <view class="flex justify-center margin text-gray">点击放大 扫码签到</view>
 </view>
 
 <view class="cu-list menu sm-border" wx:if="{{TabCur==1}}">

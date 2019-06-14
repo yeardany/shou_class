@@ -5,7 +5,7 @@ import {
   Base64
 } from '../../utils/base64.min'
 
-const qrcodeWidth = rpx2px(300)
+const qrcodeWidth = rpx2px(600)
 
 let app = getApp(),
   QRCode = require('../../utils/weapp-qrcode'),
@@ -21,7 +21,6 @@ Page({
     courseName: null,
     className: null,
     qrcodeWidth: qrcodeWidth,
-    codePath: ''
   },
 
   /**
@@ -89,21 +88,19 @@ Page({
 
     i = setInterval(function() {
       console.log('timer going...')
-      qrcode.makeCode(Base64.encode(new Date().getTime() + id))
-      // qrcode.exportImage(function(path) {
-      //   console.log(path)
-      //   that.setData({
-      //     codePath: path
-      //   })
-      // })
+      qrcode.makeCode('https://www.jd.com/?spm=' + Base64.encode(new Date().getTime() + id) + '&tn=84053098_3_dg&ie=utf-8')
+      //qrcode.exportImage(function(path) {})
     }, 3000, id)
   },
 
-  preview: function() {
-    wx.previewImage({
-      urls: [this.data.codePath] // 需要预览的图片http链接列表
-    })
-  }
+  // preview: function() {
+  //   wx.previewImage({
+  //     urls: [],
+  //     fail: (res) => {
+  //       console.log(res)
+  //     }
+  //   })
+  // }
 
   // 长按保存
   // save: function() {
