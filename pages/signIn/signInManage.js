@@ -63,16 +63,17 @@ Page({
   ok: function() {
 
     if (this.data.courseName && this.data.className) {
+      if ((this.data.courseName).trim().length > 0 && (this.data.className).trim().length > 0) {
+        let data = {
+            courseName: this.data.courseName,
+            className: this.data.className
+          },
+          that = this;
 
-      let data = {
-          courseName: this.data.courseName,
-          className: this.data.className
-        },
-        that = this;
-
-      utils.addDatum(app.globalData.signInIdTable, data, (res) => {
-        that.timer(res.data.id)
-      })
+        utils.addDatum(app.globalData.signInIdTable, data, (res) => {
+          that.timer(res.data.id)
+        })
+      }
     }
   },
 

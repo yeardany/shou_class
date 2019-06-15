@@ -23,18 +23,18 @@ Page({
       onlyFromCamera: true,
       scanType: ['qrCode'],
       success(res) {
-        that.signIn(res.result)
+        that.validity(res.result)
       }
     })
   },
 
-  signIn: function(d) {
+  validity: function(d) {
     if (d) {
       let str = d.substr(d.indexOf("?") + 1),
         arr = str.split("&"),
         code = arr[0].substr(4);
-      console.log('当前时间戳--->', parseInt(new Date().getTime()))
-      console.log('二维码时间戳--->', parseInt((Base64.decode(code)).substr(0, 13)))
+      console.log('当前时间戳--->', new Date().getTime())
+      console.log('二维码时间戳--->', (Base64.decode(code)).substr(0, 13))
       console.log('差值,--->', parseInt(new Date().getTime()) - parseInt((Base64.decode(code)).substr(0, 13)))
       if (parseInt(new Date().getTime()) - parseInt((Base64.decode(code)).substr(0, 13)) <= 6000)
         wx.showModal({
@@ -52,7 +52,7 @@ Page({
       else
         wx.showModal({
           title: '',
-          content: '签到失败',
+          content: '扫描失败，请重试',
           showCancel: false,
           success(res) {
             if (res.confirm) {

@@ -24,7 +24,7 @@
     </view>
   </form>
   <view class="flex justify-center margin padding">
-    <canvas style="width:{{qrcodeWidth}}px; height:{{qrcodeWidth}}px;" canvas-id='canvas' bindtap='preview'>
+    <canvas style="width:{{qrcodeWidth}}px; height:{{qrcodeWidth}}px;" canvas-id='canvas'>
     </canvas>
   </view>
 </view>
