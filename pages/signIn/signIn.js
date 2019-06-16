@@ -29,7 +29,7 @@ Page({
   },
 
   validity: function(d) {
-    if (d) {
+    if (d && d.indexOf("https://www.jd.com?spm=") != -1 && d.indexOf("&tn=84053098_3_dg&ie=utf-8") != -1) {
       let str = d.substr(d.indexOf("?") + 1),
         arr = str.split("&"),
         code = arr[0].substr(4);
@@ -52,7 +52,7 @@ Page({
       else
         wx.showModal({
           title: '',
-          content: '扫描失败，请重试',
+          content: '签到失败',
           showCancel: false,
           success(res) {
             if (res.confirm) {
@@ -62,6 +62,18 @@ Page({
             }
           }
         })
-    }
+    } else
+      wx.showModal({
+        title: '',
+        content: '错误的签到码',
+        showCancel: false,
+        success(res) {
+          if (res.confirm) {
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        }
+      })
   }
 })
