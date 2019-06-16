@@ -57,27 +57,13 @@ Page({
         wx.showModal({
           title: '',
           content: '签到失败',
-          showCancel: false,
-          success(res) {
-            if (res.confirm) {
-              wx.navigateBack({
-                delta: 1
-              })
-            }
-          }
+          showCancel: false
         })
     } else
       wx.showModal({
         title: '',
         content: '错误的签到码',
-        showCancel: false,
-        success(res) {
-          if (res.confirm) {
-            wx.navigateBack({
-              delta: 1
-            })
-          }
-        }
+        showCancel: false
       })
   }
 })
