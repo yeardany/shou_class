@@ -3,3 +3,19 @@
   <canvas style="width:{{qrcodeWidth}}px; height:{{qrcodeWidth}}px;" canvas-id='canvas'>
   </canvas>
 </view>
+
+<view class="cu-list menu">
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-grey"></text>已签到学生列表
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow" bindtap="refresh">刷新</button>
+    </view>
+  </view>
+  <view class="cu-item" wx:for="{{signInStudentList}}" wx:key="{{index}}">
+    <view class="content">
+      <text class="text-black text-bold text-xxl">{{item}}</text>
+    </view>
+  </view>
+</view>

@@ -60,12 +60,7 @@ Page({
   signIn: function(code, stuNumber) {
     console.log('签到id--->', code.substr(13), '学号--->', stuNumber)
 
-    let signInId = code.substr(13),
-      data = {
-        signInStudent: stuNumber
-      }
-
-    utils.updateDatum(app.globalData.signInIdTable, signInId, data, (res) => {
+    utils.updateDatum(app.globalData.signInIdTable, code.substr(13), 'signInStudent', stuNumber, (res) => {
       if (res.statusCode === 200) {
         wx.showModal({
           title: '',

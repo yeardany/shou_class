@@ -18,11 +18,11 @@ let addDatum = (tableId, data, cb) => {
 }
 
 //修改
-let updateDatum = (tableId, recordId, data, cb) => {
+let updateDatum = (tableId, recordId, key, data, cb) => {
   let Datum = new wx.BaaS.TableObject(tableId),
     Data = Datum.getWithoutData(recordId)
 
-  Data.set(data)
+  Data.uAppend(key, data)
     .update()
     .then(res => cb(res))
     .catch(err => console.dir(err))
