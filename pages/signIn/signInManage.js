@@ -90,6 +90,8 @@ Page({
       correctLevel: QRCode.CorrectLevel.H,
     })
 
+    qrcode.makeCode('https://www.jd.com?spm=' + Base64.encode(new Date().getTime() + id) + '&tn=84053098_3_dg&ie=utf-8')
+
     i = setInterval(function() {
       console.log('timer going...')
       qrcode.makeCode('https://www.jd.com?spm=' + Base64.encode(new Date().getTime() + id) + '&tn=84053098_3_dg&ie=utf-8')
