@@ -58,7 +58,7 @@ Page({
   },
 
   signIn: function(code, stuNumber) {
-    console.log('签到id--->', code.substr(13), stuNumber)
+    console.log('签到id--->', code.substr(13), '学号--->', stuNumber)
 
     let signInId = code.substr(13),
       data = {
@@ -66,28 +66,26 @@ Page({
       }
 
     utils.updateDatum(app.globalData.signInIdTable, signInId, data, (res) => {
-
+      if (res.statusCode === 200) {
+        wx.showModal({
+          title: '',
+          content: '签到成功',
+          showCancel: false,
+          success(res) {
+            if (res.confirm) {
+              wx.navigateBack({
+                delta: 1
+              })
+            }
+          }
+        })
+      }
     }, err => {
-
+      wx.showModal({
+        title: '',
+        content: '签到失败',
+        showCancel: false
+      })
     })
-    // wx.showModal({
-    //   title: '',
-    //   content: '签到成功',
-    //   showCancel: false,
-    //   success(res) {
-    //     if (res.confirm) {
-    //       wx.navigateBack({
-    //         delta: 1
-    //       })
-    //     }
-    //   }
-    // })
-
-
-    // wx.showModal({
-    //   title: '',
-    //   content: '签到失败',
-    //   showCancel: false
-    // })
   }
 })
