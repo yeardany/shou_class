@@ -1,7 +1,7 @@
 //查询
 let getDatum = (tableId, cb, query) => {
   let Datum = new wx.BaaS.TableObject(tableId)
-  
+
   Datum.setQuery(query).find()
     .then(res => cb(res))
     .catch(err => console.dir(err))
@@ -18,17 +18,9 @@ let addDatum = (tableId, data, cb) => {
 }
 
 //修改
-let updateDatum = (ctx, cb) => {
-  let tableId = getApp().globalData.tableId,
-    recordId = ctx.data.curRecordId,
-    bookName = ctx.data.editingBookName
-
+let updateDatum = (tableId, recordId, data, cb) => {
   let Datum = new wx.BaaS.TableObject(tableId),
     Data = Datum.getWithoutData(recordId)
-
-  let data = {
-    bookName
-  }
 
   Data.set(data)
     .update()

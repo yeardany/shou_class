@@ -6,6 +6,7 @@
     "pages/doExam/doExam",
     "pages/signIn/signIn",
     "pages/signIn/signInManage",
+    "pages/signIn/signInRecord",
     "pages/study/study",
     "pages/about/about"
   ],

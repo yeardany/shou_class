@@ -30,14 +30,14 @@
 </view>
 
 <view class="cu-list menu sm-border" wx:if="{{TabCur==1}}">
-  <view class="cu-item arrow" wx:for="{{signInIdList}}" wx:key="{{item.id}}">
+  <navigator url='/pages/signIn/signInRecord?signInId={{item.id}}' class="cu-item arrow" wx:for="{{signInIdList}}" wx:key="{{item.id}}">
     <view class="content">
       <text class="text-grey">{{timeStampConvert.convert(item.created_at)}} {{item.courseName}}</text>
     </view>
     <view class="action">
       <text class="text-grey text-sm">签到情况</text>
     </view>
-  </view>
+  </navigator>
 </view>
 
 <wxs src="./timeStampConvert.wxs" module="timeStampConvert" />

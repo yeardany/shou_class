@@ -40,23 +40,13 @@ Page({
       console.log('当前时间戳--->', new Date().getTime())
       console.log('二维码时间戳--->', (Base64.decode(code)).substr(0, 13))
       console.log('差值,--->', parseInt(new Date().getTime()) - parseInt((Base64.decode(code)).substr(0, 13)))
-      if (parseInt(new Date().getTime()) - parseInt((Base64.decode(code)).substr(0, 13)) <= 6000)
+      if (parseInt(new Date().getTime()) - parseInt((Base64.decode(code)).substr(0, 13)) <= 6000) {
+        if (app.globalData.stuNumber && (app.globalData.stuNumber).length > 0)
+          this.signIn((Base64.decode(code)), app.globalData.stuNumber)
+      } else
         wx.showModal({
           title: '',
-          content: '签到成功',
-          showCancel: false,
-          success(res) {
-            if (res.confirm) {
-              wx.navigateBack({
-                delta: 1
-              })
-            }
-          }
-        })
-      else
-        wx.showModal({
-          title: '',
-          content: '签到失败',
+          content: '签到码已失效',
           showCancel: false
         })
     } else
@@ -65,5 +55,39 @@ Page({
         content: '错误的签到码',
         showCancel: false
       })
+  },
+
+  signIn: function(code, stuNumber) {
+    console.log('签到id--->', code.substr(13), stuNumber)
+
+    let signInId = code.substr(13),
+      data = {
+        signInStudent: stuNumber
+      }
+
+    utils.updateDatum(app.globalData.signInIdTable, signInId, data, (res) => {
+
+    }, err => {
+
+    })
+    // wx.showModal({
+    //   title: '',
+    //   content: '签到成功',
+    //   showCancel: false,
+    //   success(res) {
+    //     if (res.confirm) {
+    //       wx.navigateBack({
+    //         delta: 1
+    //       })
+    //     }
+    //   }
+    // })
+
+
+    // wx.showModal({
+    //   title: '',
+    //   content: '签到失败',
+    //   showCancel: false
+    // })
   }
 })
