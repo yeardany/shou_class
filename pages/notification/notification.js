@@ -23,12 +23,14 @@ Page({
   },
 
   getData: function(isPullDownRefresh) {
+    let query = new wx.BaaS.Query();
+
     utils.getDatum(app.globalData.notificationTable, (res) => {
       this.setData({
         notificationList: res.data.objects
       })
       if (isPullDownRefresh)
         wx.stopPullDownRefresh()
-    })
+    }, query)
   }
 })

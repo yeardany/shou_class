@@ -21,6 +21,7 @@ Page({
     courseName: null,
     className: null,
     qrcodeWidth: qrcodeWidth,
+    signInIdList: []
   },
 
   /**
@@ -46,6 +47,8 @@ Page({
     this.setData({
       TabCur: e.currentTarget.dataset.id
     })
+    if (e.currentTarget.dataset.id == 1)
+      this.loadSignInRecord()
   },
 
   courseNameInput: function(e) {
@@ -92,6 +95,17 @@ Page({
       qrcode.makeCode('https://www.jd.com?spm=' + Base64.encode(new Date().getTime() + id) + '&tn=84053098_3_dg&ie=utf-8')
       //qrcode.exportImage(function(path) {})
     }, 3000, id)
+  },
+
+  loadSignInRecord: function() {
+    let query = new wx.BaaS.Query();
+    query.compare('created_by', '=', this.data.userID)
+
+    utils.getDatum(app.globalData.signInIdTable, (res) => {
+      this.setData({
+        signInIdList: res.data.objects
+      })
+    }, query)
   }
 
   // preview: function() {

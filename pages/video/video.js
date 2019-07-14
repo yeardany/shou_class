@@ -21,13 +21,15 @@ Page({
 
   //获取腾讯视频vid列表，数据表videoId
   fetchVideoIdList(isPullDownRefresh) {
+    let query = new wx.BaaS.Query();
+
     utils.getDatum(app.globalData.videoIdTable, (res) => {
       this.setData({
         videoIdList: res.data.objects
       })
       if (isPullDownRefresh)
         wx.stopPullDownRefresh()
-    })
+    }, query)
   },
 
   // 绑定添加书目的输入框事件，设置添加的数目名称

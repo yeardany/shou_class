@@ -1,8 +1,7 @@
 //查询
-let getDatum = (tableId, cb) => {
-  let Datum = new wx.BaaS.TableObject(tableId),
-    query = new wx.BaaS.Query()
-
+let getDatum = (tableId, cb, query) => {
+  let Datum = new wx.BaaS.TableObject(tableId)
+  
   Datum.setQuery(query).find()
     .then(res => cb(res))
     .catch(err => console.dir(err))
