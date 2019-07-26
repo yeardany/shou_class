@@ -51,6 +51,8 @@ App({
     clientId: '020ffa0c5924ad7a915a',
     videoIdTable: '70734', //数据表videoId
     notificationTable: '73021', //数据表notificationTable
-    signInIdTable: '76353' //数据表signInId
+    signInIdTable: '76353', //数据表signInId
+    examTable: '79903' //数据表exam
+
   }
 })

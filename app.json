@@ -4,6 +4,7 @@
     "pages/video/video",
     "pages/mine/mine",
     "pages/doExam/doExam",
+    "pages/doExam/examList",
     "pages/signIn/signIn",
     "pages/signIn/signInManage",
     "pages/signIn/signInRecord",
@@ -42,7 +43,7 @@
   "sitemapLocation": "sitemap.json",
   "plugins": {
     "tencentvideo": {
-      "version": "1.3.4",
+      "version": "1.3.6",
       "provider": "wxa75efa648b60994b"
     }
   }

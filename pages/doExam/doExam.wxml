@@ -1,2 +1,37 @@
 <!--pages/doExam/doExam.wxml-->
-<text>pages/doExam/doExam.wxml</text>
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action padding-xs">{{questionDetail}}</view>
+</view>
+
+<view class="cu-list menu">
+  <view class="cu-item">
+    <view class="content padding-tb-xl" bindtap='select' data-value="{{arrayConvert.convert(questions,realIndex,answerArrays,0)}}" data-option='0'>
+      <icon class="margin-right-sm" type="{{icon[0]}}" size="23"></icon>
+      <text>A、{{arrayConvert.convert(questions,realIndex,answerArrays,0)}}</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content padding-tb-xl" bindtap='select' data-value="{{arrayConvert.convert(questions,realIndex,answerArrays,1)}}" data-option='1'>
+      <icon class="margin-right-sm" type="{{icon[1]}}" size="23"></icon>
+      <text>B、{{arrayConvert.convert(questions,realIndex,answerArrays,1)}}</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content padding-tb-xl" bindtap='select' data-value="{{arrayConvert.convert(questions,realIndex,answerArrays,2)}}" data-option='2'>
+      <icon class="margin-right-sm" type="{{icon[2]}}" size="23"></icon>
+      <text>C、{{arrayConvert.convert(questions,realIndex,answerArrays,2)}}</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content padding-tb-xl" bindtap='select' data-value="{{arrayConvert.convert(questions,realIndex,answerArrays,3)}}" data-option='3'>
+      <icon class="margin-right-sm" type="{{icon[3]}}" size="23"></icon>
+      <text>D、{{arrayConvert.convert(questions,realIndex,answerArrays,3)}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="padding flex flex-direction">
+  <button class="cu-btn bg-green lg" bindtap='next'>下一题</button>
+</view>
+
+<wxs src="./arrayConvert.wxs" module="arrayConvert" />

@@ -1,0 +1,16 @@
+var convert = function(questions, realIndex, answerArrays, key) {
+  var match = {
+      "A": 0,
+      "B": 1,
+      "C": 2,
+      "D": 3
+    },
+    answer = answerArrays[key],
+    answerKey = match[answer],
+    options = questions[realIndex].options,
+    option = options[answerKey]
+  return option.content
+}
+module.exports = {
+  convert: convert
+}
