@@ -9,12 +9,16 @@
     "pages/signIn/signInManage",
     "pages/signIn/signInRecord",
     "pages/study/study",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/doExam/wrongAnswerList",
+    "pages/doExam/doExamManage",
+    "pages/doExam/examRecord"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "iSHOU课堂",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default"
   },
   "tabBar": {
     "color": "#7A7E83",

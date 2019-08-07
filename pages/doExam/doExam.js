@@ -1,5 +1,6 @@
 // pages/doExam/doExam.js
 const app = getApp()
+let wrongAnswers = []
 
 Page({
 
@@ -7,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    examId: null,
     index: 0,
     realIndex: 0,
     questionCount: 0,
@@ -69,9 +71,9 @@ Page({
       chooseOption = event.currentTarget.dataset.option,
       trueOption = this.data.questions[this.data.realIndex].true,
       temp = this.data.questions[this.data.realIndex].options,
-      trueVaule = temp[match[trueOption]].content;
+      trueValue = temp[match[trueOption]].content;
     console.log("选择的选项是：" + chooseOption + " 选择的值：" + value);
-    console.log("本题乱序前的选项是：" + trueOption + " 值是:" + trueVaule);
+    console.log("本题乱序前的选项是：" + trueOption + " 值是:" + trueValue);
 
     // var icons = ["circle", "circle", "circle", "circle"];
     // icons[chooseOption] = "cancel";
@@ -80,16 +82,23 @@ Page({
     this.setData({
       icon: icons,
       value: value,
-      trueVaule: trueVaule
+      trueValue: trueValue
     })
   },
   //点击下一题
   next: function() {
-    if (this.data.value != this.data.trueVaule) {
+    if (this.data.value === "") return
+    if (this.data.value != this.data.trueValue) {
+      let wrong = {
+        "question": this.data.questionDetail,
+        "wrongAnswer": this.data.value,
+        "correctAnswer": this.data.trueValue
+      }
+      wrongAnswers.push(wrong);
       this.setData({
-        wrong: this.data.wrong + 1
+        wrong: this.data.wrong + 1,
       })
-      console.log('错一题')
+      console.log('错一题', wrongAnswers)
     }
 
     if (this.data.index < this.data.questionArrays.length - 1) {
@@ -102,29 +111,27 @@ Page({
         realIndex: this.data.questionArrays[this.data.index]
       })
       this.setData({
-        questionDetail: this.data.questions[this.data.realIndex].question
+        questionDetail: this.data.questions[this.data.realIndex].question,
+        value: ''
       })
       // console.log("选择后的index:" + this.data.index);
       // console.log("选择后的realIndex:" + this.data.realIndex);
     } else {
-      wx.showModal({
-        title: '结果',
-        content: '错了' + this.data.wrong + '题',
-        showCancel: false,
-        success(res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
+
+      wx.setStorage({
+        key: "wrongAnswers",
+        data: wrongAnswers
+      })
+      wrongAnswers = []
+      wx.navigateTo({
+        url: '/pages/doExam/wrongAnswerList?score=' + (this.data.questionCount - this.data.wrong) * 100 / this.data.questionCount + '&examId=' + this.data.examId
       })
     }
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() {
+  onLoad: function(e) {
 
     try {
       let questions = JSON.parse(wx.getStorageSync('exercises'))
@@ -133,6 +140,7 @@ Page({
 
         //在js中初始化一个数组，数组里存储正序的题号。这里题号从1开始
         this.setData({
+          examId: e.examId,
           questions: questions,
           questionCount: questions.length
         })

@@ -44,7 +44,7 @@ Page({
       data: (this.data.examList[e.currentTarget.dataset.index]).exercises
     })
     wx.navigateTo({
-      url: '/pages/doExam/doExam'
+        url: '/pages/doExam/doExam?examId=' + e.currentTarget.dataset.id
     })
-  }
+}
 })

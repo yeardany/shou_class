@@ -38,7 +38,8 @@
       </navigator>
     </view>
     <view class="cu-item arrow" wx:if="{{stuNumber&&stuNumber!='--'&&hasUserInfo}}">
-      <navigator class="content" url="/pages/doExam/examList" hover-class="none">
+      <navigator class="content" 
+       url="{{stuNumber=='1111111'?'/pages/doExam/doExamManage':'/pages/doExam/examList'}}" hover-class="none">
         <text class="cuIcon-formfill text-green"></text>
         <text class="text-grey">课程测验</text>
       </navigator>

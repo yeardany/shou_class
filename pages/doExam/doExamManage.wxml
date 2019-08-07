@@ -1,0 +1,30 @@
+<!--pages/doExam/doExamManage.wxml-->
+<view class="bg-white nav text-center">
+  <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{['发起测验','测验记录']}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+    {{item}}
+  </view>
+</view>
+
+<view class="cu-list menu sm-border" wx:if="{{TabCur==0}}">
+  <form bindsubmit="bindFormSubmit">
+    <view class="cu-form-group margin-top">
+      <view class="title">测验名称</view>
+      <input bindinput='examNameInput'></input>
+    </view>
+    <view class="padding flex flex-direction">
+      <textarea name="textarea" maxlength="-1" />
+      <button class="cu-btn bg-green margin-tb-sm lg" form-type="submit">提交</button>
+    </view>
+  </form>
+</view>
+
+<view class="cu-list menu sm-border" wx:if="{{TabCur==1}}">
+  <navigator url='/pages/doExam/examRecord?examId={{item.id}}' class="cu-item arrow" wx:for="{{examList}}" wx:key="{{item.id}}">
+    <view class="content">
+      <text class="text-grey">{{item.name}}</text>
+    </view>
+    <view class="action">
+      <text class="text-grey text-sm">测验情况</text>
+    </view>
+  </navigator>
+</view>

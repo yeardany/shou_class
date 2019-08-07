@@ -1,0 +1,19 @@
+<!--pages/doExam/wrongAnswerList.wxml-->
+<view class="solids-bottom padding-xs flex align-center">
+  <view class="flex-sub text-center">
+    <view class="solid-bottom text-xl padding">
+      <text class="text-black text-bold">{{scoreHandler.handle(score)}} 分，错题如下：</text>
+    </view>
+  </view>
+</view>
+<view class="cu-list menu">
+  <view class="cu-item" wx:for="{{wrongAnswerList}}" wx:key="{{index}}">
+    <view class="content padding-tb-xl">
+      <text>题目：{{item.question}}\n</text>
+      <text>你的答案：{{item.wrongAnswer}}\n</text>
+      <text>正确答案：{{item.correctAnswer}}\n</text>
+    </view>
+  </view>
+</view>
+
+<wxs src="./scoreHandler.wxs" module="scoreHandler" />
