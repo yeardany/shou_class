@@ -130,9 +130,14 @@ Page({
     }
   },
   getStuNumber(e) {
-    this.setData({
-      stuNumber: e.detail.value
-    })
+    if (!(/^\d{7}$/.test(parseInt(e.detail.value))))
+      this.setData({
+        stuNumber: '--'
+      })
+    else
+      this.setData({
+        stuNumber: e.detail.value
+      })
   },
   showModal() {
     this.setData({

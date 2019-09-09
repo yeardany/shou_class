@@ -1,0 +1,16 @@
+<!--pages/notification/notificationManage.wxml-->
+<view class="cu-list menu sm-border">
+  <form bindsubmit="bindFormSubmit">
+    <view class="cu-form-group">
+      <view class="title">类型</view>
+      <input placeholder="例如：公告、作业" bindinput='notificationNameInput' />
+    </view>
+    <view class="cu-form-group">
+      <view class="title ">内容</view>
+      <textarea name="textarea" maxlength="-1" />
+    </view>
+    <view class="padding flex flex-direction ">
+      <button class="cu-btn bg-green margin-tb-sm lg" form-type="submit">发布</button>
+    </view>
+  </form>
+</view>

@@ -1,0 +1,4 @@
+<!--pages/online/watch.wxml-->
+<view class="cu-card case">
+  <video class="cu-item shadow" src="{{url}}" object-fit="fill" play-btn-position="center"></video>
+</view>
