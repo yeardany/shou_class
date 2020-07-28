@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view>
+	<l-search-bar placeholder="输入完整姓名搜索" show-cancel="{{false}}" maxlength="4" bind:linconfirm="search" bind:linchange="input" />
+	<view style="height: {{scrollHeigth}}px" wx:if="{{!listShow}}">
+		<l-input maxlength="10" placeholder="请输入学校中文全称" type="text" clear="{{true}}" hide-label="{{true}}" bind:linblur="getSchoolName" />
+		<l-input maxlength="5" placeholder="请输入班长姓名首字母" type="text" clear="{{true}}" hide-label="{{true}}" bind:linblur="getMonitorName" />
+		<button type="default" style="width:96%;color:#B0B0B0;border-color:#B0B0B0;margin:10px auto;" bindtap="check">我好了</button>
+	</view>
+	<scroll-view wx:if="{{listShow}}" scroll-y="true" style="height: {{scrollHeigth}}px" bindscrolltolower="toBottom">
+		<l-loadmore show="{{true}}" loading-text="努力加载中~">
+			<view wx:for="{{contacts}}" wx:key="index" wx:for-item="data" slot="content">
+				<l-list gap="23" title="{{item.city}}" desc="{{item.belong}}" is-link="{{false}}" wx:for="{{data}}" wx:key="index" bind:lintap="tap" data-city="{{item.city}}" data-phone="{{item.phone}}" data-tel="{{item.tel}}" data-email="{{item.email}}" />
+			</view>
+		</l-loadmore>
+	</scroll-view>
+</view>

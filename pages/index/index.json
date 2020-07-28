@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "l-list": "/miniprogram_npm/lin-ui/list/index",
+    "l-search-bar": "/miniprogram_npm/lin-ui/search-bar/index",
+    "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
+    "l-input": "/miniprogram_npm/lin-ui/input/index"
+  }
+}

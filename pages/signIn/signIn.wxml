@@ -1,4 +1,0 @@
-<!--pages/signIn.wxml-->
-<view class="padding flex flex-direction">
-  <button class="cu-btn bg-green margin-tb-sm lg" bindtap='openScan'>点击扫码签到</button>
-</view>

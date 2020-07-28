@@ -1,51 +1,13 @@
 {
   "pages": [
-    "pages/notification/notification",
-    "pages/online/online",
-    "pages/mine/mine",
-    "pages/doExam/doExam",
-    "pages/doExam/examList",
-    "pages/signIn/signIn",
-    "pages/signIn/signInManage",
-    "pages/signIn/signInRecord",
-    "pages/study/study",
-    "pages/about/about",
-    "pages/doExam/wrongAnswerList",
-    "pages/doExam/doExamManage",
-    "pages/doExam/examRecord",
-    "pages/notification/notificationManage",
-    "pages/online/watch",
-    "pages/online/onlineManage"
+    "pages/index/index"
   ],
   "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "iSHOU课堂",
-    "navigationBarTextStyle": "black",
-    "navigationStyle": "default"
+    "navigationBarTitleText": "海大教工通讯录",
+    "navigationBarTextStyle": "black"
   },
-  "tabBar": {
-    "color": "#7A7E83",
-    "selectedColor": "#3cc51f",
-    "borderStyle": "black",
-    "backgroundColor": "#ffffff",
-    "list": [
-      {
-        "pagePath": "pages/notification/notification",
-        "text": "公告"
-      },
-      {
-        "pagePath": "pages/study/study",
-        "text": "学习"
-      },
-      {
-        "pagePath": "pages/online/online",
-        "text": "新闻"
-      },
-      {
-        "pagePath": "pages/mine/mine",
-        "text": "我的"
-      }
-    ]
-  },
+  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

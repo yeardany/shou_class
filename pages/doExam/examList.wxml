@@ -1,8 +1,0 @@
-<!--pages/doExam/eaxmList.wxml-->
-<view class="cu-list menu">
-  <view class="cu-item" wx:for="{{examList}}" wx:key="{{item.id}}" bindtap="doExam" data-index='{{index}}' data-id='{{item.id}}'>
-    <view class="content">
-      <text>{{item.name}}</text>
-    </view>
-  </view>
-</view>

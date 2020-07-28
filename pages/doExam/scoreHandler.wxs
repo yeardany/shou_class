@@ -1,6 +1,0 @@
-var handle = function(score) {
-  return parseInt(score)
-}
-module.exports = {
-  handle: handle
-}
