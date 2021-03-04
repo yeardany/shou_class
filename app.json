@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/notification/notification",
-    "pages/video/video",
     "pages/mine/mine",
     "pages/doExam/doExam",
     "pages/doExam/examList",
@@ -33,10 +32,6 @@
       {
         "pagePath": "pages/study/study",
         "text": "学习"
-      },
-      {
-        "pagePath": "pages/video/video",
-        "text": "视频"
       },
       {
         "pagePath": "pages/mine/mine",

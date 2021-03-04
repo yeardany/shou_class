@@ -1,7 +1,7 @@
 /* pages/mine/mine.wxss */
 
 .UCenter-bg {
-  background-image: url(https://ws1.sinaimg.cn/large/006tNc79gy1g2rlpy6n6kj31bz0scgrm.jpg);
+  background-image: url(https://tva1.sinaimg.cn/large/e6c9d24egy1go7kx7tb21j21400u07wl.jpg);
   background-size: cover;
   height: 550rpx;
   display: flex;
